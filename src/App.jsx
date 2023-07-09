@@ -1,38 +1,40 @@
-import PlaceContentCenter from './components/PlaceContentCenter'
-import Card from './components/Card'
-import Button from './components/Button'
+import { useEffect, useState } from 'react'
+// import PlaceContentCenter from './components/PlaceContentCenter'
 import Input from './components/Input'
+import Button from './components/Button'
 
 function App() {
-  // const [tick, setTick] = useState(0)
+  const [name, setName] = useState('')
+  const [online, setOnline] = useState(false)
+  const [scrollPosition, setScrollPosition] = useState(window.scroll)
 
-  function handleClick() {
-    // tick.current = tick.current + 1
-    // console.log(tick.current)
-    // const nextTick = tick + 1
-    // setTick(nextTick)
-    // console.log(nextTick)
+  useEffect(() => {
+    // console.log('I always rendered')
+  })
+
+  useEffect(() => {
+    // console.log('First rendered')
+  }, [])
+
+  useEffect(() => {
+    // console.log(`I am now ${online ? 'online' : 'offline'}`)
+  }, [online])
+
+  function updateScrollPosition() {
+    const windowScrolling = window.scrollY
+    console.log(`Window scroll position: ${windowScrolling}`)
+    setScrollPosition(windowScrolling)
   }
 
+  useEffect(() => {
+    window.addEventListener('scroll', updateScrollPosition)
+  }, [])
+
   return (
-    <PlaceContentCenter>
-      <Card>
-        <Card.Title>useRef Hooks</Card.Title>
-        <Card.Body>
-          <Input
-            isFocused
-            placeholder={'Email'}
-            className={'border border-slate-500'}
-          />
-          <Input
-            placeholder={'Password'}
-            className={'border border-slate-500'}
-          />
-          <Button onClick={handleClick}>Tick</Button>
-        </Card.Body>
-        {/* <Card.Footer>You clicked {tick.current} times.</Card.Footer> */}
-      </Card>
-    </PlaceContentCenter>
+    <div className={'h-[4000px]'}>
+      <Input value={name} onChange={(e) => setName(e.target.value)} />
+      <Button onClick={() => setOnline((online) => !online)}>Set Online</Button>
+    </div>
   )
 }
 
