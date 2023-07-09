@@ -1,6 +1,16 @@
-export default function Input({ type = 'text', ...props }) {
+import { useEffect, useRef } from 'react'
+
+export default function Input({ isFocused = false, type = 'text', ...props }) {
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    if (isFocused) {
+      inputRef.current.focus()
+    }
+  }, [])
   return (
     <input
+      ref={inputRef}
       {...props}
       type={type}
       className={
