@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react'
 // import PlaceContentCenter from './components/PlaceContentCenter'
-import Input from './components/Input'
-import Button from './components/Button'
+import Input from '../components/Input'
+import Button from '../components/Button'
 
 function UseEffectContent() {
   const [name, setName] = useState('')

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import PlaceContentCenter from './components/PlaceContentCenter'
-import Card from './components/Card'
+import PlaceContentCenter from '../components/PlaceContentCenter'
+import Card from '../components/Card'
 import axios from 'axios'
 
 function APIContent() {
