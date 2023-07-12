@@ -3,7 +3,7 @@ import PlaceContentCenter from './components/PlaceContentCenter'
 import Card from './components/Card'
 import axios from 'axios'
 
-function App() {
+function APIContent() {
   const [loading, setLoading] = useState(false)
   const [users, setUsers] = useState([])
 
@@ -50,4 +50,4 @@ function App() {
   )
 }
 
-export default App
+export default APIContent
